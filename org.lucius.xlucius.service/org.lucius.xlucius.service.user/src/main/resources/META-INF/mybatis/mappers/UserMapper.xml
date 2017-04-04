@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lucius.xlucius.service.user.UserService">
+
+	<select id="queryAllUsers" parameterType="java.lang.Long" resultMap="USER_MAPPER">
+		SELECT
+		*
+		FROM
+		user
+	</select>
+
+	<resultMap type="org.lucius.xlucius.spi.model.User"
+		id="USER_MAPPER">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="account_pwd" property="password" />
+		<result column="age" property="age" />
+	</resultMap>
+
+</mapper>

@@ -1,0 +1,10 @@
+﻿.account-info{ padding:0 15px;}
+.ai-top{ display:inline-block; width:100%; padding:30px 0; margin-bottom:15px; border-bottom:1px dashed #ddd;}
+.ai-pic{ float:left; border:1px solid #ddd; width:98px; height:98px; overflow:hidden;}
+.ai-other{ float:left; padding-left:10px;}
+.ai-other-p{ padding:27px 5px;}
+
+.change-psw .msg-box{ padding-left:250px; margin:0 90px;}
+
+.find-psw{ padding:0 100px; margin-bottom:10px;}
+.find-psw .msg-box{ padding-left:250px; margin:0 70px;}

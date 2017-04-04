@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan name="org.lucius.xlucius_0.0.1.SNAPSHOT.plan" version="0.0.1.SNAPSHOT" scoped="false" atomic="false"
+        xmlns="http://www.eclipse.org/virgo/schema/plan"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+		        http://www.eclipse.org/virgo/schema/plan 
+		        http://www.eclipse.org/virgo/schema/plan/eclipse-virgo-plan.xsd">
+
+	<artifact type="bundle"  name="org.lucius.xlucius.dba" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.xlucius.spi.user" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.xlucius.host" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.xlucius.portal.user" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.xlucius.service.user" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.xlucius.utils" version="0.0.1.SNAPSHOT"/>
+</plan>

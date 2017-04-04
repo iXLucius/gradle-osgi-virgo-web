@@ -1,0 +1,21 @@
+.login-header{ border-bottom:1px solid #ddd; height:93px;}
+.login-header .top{ padding-top:25px;}
+
+.login{ height:450px; padding-top:70px; background:#f5f5f5; text-align:center;}
+.login-box{ width:850px; border:10px solid #e8e8e8; margin:0 auto; padding:1px; background:#b7c2c9;}
+.login-bg{ display:inline-block; width:100%; height:100%; background:#FFF;}
+.login-img{ float:left; width:492px; height:351px; border-right:1px solid #b7c2c9; background:url(../images/login_img1.jpg) no-repeat;}
+.login-img2{ background:url(../images/login_img2.jpg) no-repeat;}
+.login-con{ float:left; width:357px; text-align:left;}
+
+.tab2{ display:inline-block; width:100%;}
+.tab2 li{ float:left; width:178px; display:inline-block; height:47px; line-height:47px; border-bottom:1px solid #b7c2c9; text-align:center; background-position:left -381px; font-size:14px; font-weight:bold; cursor:pointer;}
+.tab2 li.first{ border-right:1px solid #b7c2c9;}
+.tab2 li.on{ border-bottom-color:#FFF; background:#FFF;}
+
+.login-dl{ margin:11px 38px 0 38px;}
+.login-dl dt{ font-size:14px; position:relative;}
+.login-dl input{ height:28px; line-height:28px;}
+.dt-a{ font-size:12px; position:absolute; right:3px; _right:41px; top:0;}
+.login-dl .btn1{ width:245px;}
+.login-dl .error{ color:#F00; border:0; background:0; padding:0; height:auto;}

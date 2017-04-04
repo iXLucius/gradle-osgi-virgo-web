@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>服务器连接超时提示</title>
+<script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        try {
+            new QWebChannel(qt.webChannelTransport, function(channel) {
+                window.QtInvokeHelper = channel.objects.QtInvokeHelper;
+                window.QtInvokeHelper.JSSessionInvalid();
+            });
+        } catch (e) {
+        	window.location.href = "/user/mg/main/toLoginPage?rem_flag=null&clientLoginType=null";
+        }
+    });
+</script>
+</head>
+<body>
+
+</body>
+</html>

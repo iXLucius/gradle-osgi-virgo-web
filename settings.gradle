@@ -1,0 +1,12 @@
+rootProject.name = 'org.lucius.xlucius'
+
+include 'org.lucius.xlucius.dba'
+include 'org.lucius.xlucius.host'
+include 'org.lucius.xlucius.portal'
+include 'org.lucius.xlucius.portal:org.lucius.xlucius.portal.user'
+include 'org.lucius.xlucius.service'
+include 'org.lucius.xlucius.service:org.lucius.xlucius.service.user'
+include 'org.lucius.xlucius.spi'
+include 'org.lucius.xlucius.spi:org.lucius.xlucius.spi.user'
+include 'org.lucius.xlucius.utils'
+

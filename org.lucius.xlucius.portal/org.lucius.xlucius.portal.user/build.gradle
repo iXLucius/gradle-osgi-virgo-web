@@ -26,7 +26,7 @@ dependencies {
 	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.captcha', version: '0.0.1-SNAPSHOT' , ext : "jar"
 	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.export', version: '0.0.1-SNAPSHOT' , ext : "jar"
 	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.file', version: '0.0.1-SNAPSHOT' , ext : "jar"
-	
+	compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
 	compile group: 'javax.servlet', name: 'com.springsource.javax.servlet', version: '2.5.0',configuration: "compile",ext : "jar"
 	compile group: "org.freemarker", name: 'com.springsource.freemarker', version: '2.3.18',configuration: "compile" ,ext : "jar"
 	compile group: "com.caucho", name: 'com.springsource.com.caucho', version: '3.2.1',configuration: "compile" ,ext : "jar"

@@ -24,4 +24,45 @@ dependencies {
 	compile group: 'org.springframework', name: 'org.springframework.web.servlet', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"
 	compile group: 'org.springframework', name: 'org.springframework.web.portlet', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"
 	compile group: 'org.aopalliance', name: 'com.springsource.org.aopalliance', version: '1.0.0',configuration: "compile",ext : "jar"
+	compile group: 'org.json', name: 'com.springsource.org.json', version: '1.0.0', configuration: "compile" ,ext : "jar"
+	compile group: 'org.joda', name: 'com.springsource.org.joda.time', version: '1.6.2',configuration: "compile",ext : "jar"
+	compile group: 'org.apache.commons', name: 'com.springsource.org.apache.commons.dbcp', version: '1.2.2.osgi',configuration: "compile",ext : "jar"
+	
+	compile group: 'javax.validation', name: 'com.springsource.javax.validation', version: '1.0.0.GA',configuration: "compile",ext : "jar"
+	compile group: 'org.apache.commons', name: 'com.springsource.org.apache.commons.collections', version: '3.2.0', configuration: "compile" ,ext : "jar"
+	compile group: 'org.apache.httpcomponents', name: 'com.springsource.org.apache.httpcomponents.httpcore', version: '4.2.1',configuration: "compile",ext : "jar"
+	compile group: 'org.apache.httpcomponents', name: 'com.springsource.org.apache.httpcomponents.httpclient', version: '4.2.1',configuration: "compile",ext : "jar"
+	compile group: 'org.apache.httpcomponents', name: 'com.springsource.org.apache.httpcomponents.httpmime', version: '4.2.1',configuration: "compile",ext : "jar"
+	compile group: 'org.apache.httpcomponents', name: 'com.springsource.org.apache.httpcomponents.httpclient-cache', version: '4.2.1',configuration: "compile",ext : "jar"
+	compile group: 'net.sourceforge.jexcelapi', name: 'com.springsource.jxl', version: '2.6.6',configuration: "compile", ext : "jar"
+	compile group: 'org.apache.poi', name: 'com.springsource.org.apache.poi', version: '3.9.0.FINAL',configuration: "compile", ext : "jar"
+	compile group: 'org.apache.ant', name: 'com.springsource.org.apache.tools.ant', version: '1.7.1', configuration: "compile" ,ext : "jar"
+	compile group: 'org.hibernate', name: 'com.springsource.org.hibernate.validator', version: '4.2.0.Final',configuration: "compile",ext : "jar"
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+	compile group: 'commons-io', name: 'commons-io', version: '2.4'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'
+	compile group: 'org.eclipse.osgi', name: 'org.eclipse.osgi', version: '3.9.1.v20140110-1610'
+	compile group: 'org.eclipse.osgi', name: 'org.eclipse.osgi.services', version: '3.3.100.v20130513-1956'
+	compile group: 'junit', name: 'junit', version: '4.12'
+	compile group: 'commons-pool', name: 'commons-pool', version: '1.5.7'
+	compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
+	compile group: 'org.jsoup', name: 'com.springsource.org.jsoup', version: '1.5.2',configuration: "compile",ext : "jar"
+	
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.web.listener', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.web.interceptor', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.rpc', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.common', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.utils.codec', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.orm', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.model', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.junit', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.core', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	compile group: 'org.lucius.framework', name: 'org.lucius.framework.config', version: '0.0.1-SNAPSHOT' , ext : "jar"
+	
+	
+	compile files('../libs/org.lucius.framework.sitemesh-3.0.1.jar',
+				  '../libs/org.eclipse.gemini.blueprint.core_1.0.2.RELEASE.jar',
+				  '../libs/org.eclipse.gemini.blueprint.extender_1.0.2.RELEASE.jar',
+				  '../libs/org.eclipse.gemini.blueprint.io_1.0.2.RELEASE.jar'
+				)
 }

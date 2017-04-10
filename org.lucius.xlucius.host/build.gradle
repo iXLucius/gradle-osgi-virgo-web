@@ -7,7 +7,7 @@ dependencies {
 	compile group: 'org.codehaus.jackson', name: 'com.springsource.org.codehaus.jackson.mapper', version: '1.4.3',configuration: "compile",ext : "jar"
 	compile group: 'org.codehaus.jackson', name: 'com.springsource.org.codehaus.jackson', version: '1.4.3',configuration: "compile",ext : "jar"
 	
-	compile group: 'org.springframework', name: 'org.springframework.aop', version: '3.2.5.RELEASE',configuration: "compile",ext : "jar"
+	compile group: 'org.springframework', name: 'org.springframework.aop', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"
 	compile group: 'org.springframework', name: 'org.springframework.asm', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"
 	compile group: 'org.springframework', name: 'org.springframework.aspects', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"
 	compile group: 'org.springframework', name: 'org.springframework.beans', version: '3.1.0.RELEASE',configuration: "compile",ext : "jar"

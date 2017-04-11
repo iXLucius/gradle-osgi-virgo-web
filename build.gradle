@@ -3,7 +3,7 @@ import java.io.File;
 buildscript {
     repositories {
         maven {
-			url "http://127.0.0.1:8082/nexus/content/groups/public/"
+			url "http://172.16.5.137:8081/nexus/content/groups/public/"
 		}
     }
     dependencies { classpath 'org.eclipse.virgo.bundlor:bundlor-plugin:0.2' }
@@ -13,6 +13,11 @@ ext {
 	moduleProjects = subprojects.findAll {
 		!it.name.equals('org.lucius.xlucius') && !it.name.equals('org.lucius.xlucius.portal') && !it.name.equals('org.lucius.xlucius.service') && !it.name.equals('org.lucius.xlucius.spi')
 	}
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') && !it.name.equalsIgnoreCase('org.lucius.xlucius.portal') && !it.name.equalsIgnoreCase('org.lucius.xlucius.service') && !it.name.equalsIgnoreCase('org.lucius.xlucius.spi')}) { project ->
@@ -64,7 +69,7 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 	
 	repositories {
 		maven {
-			url "http://127.0.0.1:8082/nexus/content/groups/public/"
+			url "http://172.16.5.137:8081/nexus/content/groups/public/"
 			artifactUrls "https://repo1.maven.org/maven2"
 			artifactUrls "http://dist.wso2.org/maven2/"
 		}
@@ -140,11 +145,11 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 		repositories {  
 			mavenDeployer {
 				//userName  和 password 为maven的用户名和密码  
-				snapshotRepository(url: "http://127.0.0.1:8082/nexus/content/repositories/snapshots/") {  
+				snapshotRepository(url: "http://172.16.5.137:8081/nexus/content/repositories/snapshots/") {  
 					authentication(userName: "admin", password: "admin123")  
 				}
 				
-				repository(url: "http://127.0.0.1:8082/nexus/content/repositories") {
+				repository(url: "http://172.16.5.137:8081/nexus/content/repositories") {
 		            authentication(userName: "admin", password: "admin123")
 		        }
 				
@@ -166,15 +171,64 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 	}
 }
 
+task startVirgoTomcat(type:Exec) {
+  workingDir 'C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/bin'
+
+  //on windows:
+  commandLine 'cmd', '/c', 'startup.bat'
+
+  //on linux
+  //commandLine './stop.sh'
+
+  //store the output instead of printing to the console:
+  //standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+task stopVirgoTomcat(type:Exec) {
+  workingDir 'C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/bin'
+
+  //on windows:
+  commandLine 'cmd', '/c', 'shutdown.bat'
+
+  //on linux
+  //commandLine './stop.sh'
+
+  //store the output instead of printing to the console:
+  //standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+
 configure(rootProject) {
 	description = "org.lucius.xlucius"
 	
-	version = '0.0.1-RELEASE'
+	version = '0.0.1-SNAPSHOT'
 
 	apply plugin: "groovy"
 
 	// don't publish the default jar for the root project
 	configurations.archives.artifacts.clear()
+	
+	
+	task deployToLocalVirgoServer(type:Copy){
+		moduleProjects.each { subproject ->
+			from subproject.jar
+			from file("$subproject.buildDir" + File.separator + "dependencies")
+			into ("C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/repository/usr")
+		}
+	}
+	
+	deployToLocalVirgoServer.dependsOn "distZip"
+	
 
 	task distZip(type: Zip) {
 		group = "Distribution"
@@ -210,6 +264,15 @@ configure(rootProject) {
 			
 			into ("${baseDir}/dist-with-dependencies") {
 				from subproject.jar
+				//将每个子项目所用到的依赖拷贝到发布目录
+				from file("$subproject.buildDir" + File.separator + "dependencies")
+				include('**/*.jar')
+			}
+			
+			//发布到本地的virgo中
+			into ("file://C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/repository/usr") {
+				from subproject.jar
+				println '发布到virgo中... ...'
 				//将每个子项目所用到的依赖拷贝到发布目录
 				from file("$subproject.buildDir" + File.separator + "dependencies")
 				include('**/*.jar')

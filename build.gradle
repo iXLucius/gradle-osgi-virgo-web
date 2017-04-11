@@ -269,14 +269,6 @@ configure(rootProject) {
 				include('**/*.jar')
 			}
 			
-			//发布到本地的virgo中
-			into ("file://C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/repository/usr") {
-				from subproject.jar
-				println '发布到virgo中... ...'
-				//将每个子项目所用到的依赖拷贝到发布目录
-				from file("$subproject.buildDir" + File.separator + "dependencies")
-				include('**/*.jar')
-			}
 		}
 	}
 

@@ -172,7 +172,7 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 }
 
 task startVirgoTomcat(type:Exec) {
-  workingDir 'C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/bin'
+  workingDir System.getenv()['VIRGO_HOME']+"/bin"
 
   //on windows:
   commandLine 'cmd', '/c', 'startup.bat'
@@ -190,7 +190,7 @@ task startVirgoTomcat(type:Exec) {
 }
 
 task stopVirgoTomcat(type:Exec) {
-  workingDir 'C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/bin'
+  workingDir System.getenv()['VIRGO_HOME']+"/bin"
 
   //on windows:
   commandLine 'cmd', '/c', 'shutdown.bat'
@@ -223,7 +223,7 @@ configure(rootProject) {
 		moduleProjects.each { subproject ->
 			from subproject.jar
 			from file("$subproject.buildDir" + File.separator + "dependencies")
-			into ("C:/Users/lvxx/Desktop/virgo-tomcat-server-3.6.4.RELEASE/repository/usr")
+			into (System.getenv()['VIRGO_HOME']+"/repository/usr")
 		}
 	}
 	

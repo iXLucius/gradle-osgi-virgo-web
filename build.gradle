@@ -3,7 +3,7 @@ import java.io.File;
 buildscript {
     repositories {
         maven {
-			url "http://172.16.5.137:8081/nexus/content/groups/public/"
+			url "http://127.0.0.1:8082/nexus/content/groups/public/"
 		}
     }
     dependencies { classpath 'org.eclipse.virgo.bundlor:bundlor-plugin:0.2' }
@@ -69,7 +69,7 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 	
 	repositories {
 		maven {
-			url "http://172.16.5.137:8081/nexus/content/groups/public/"
+			url "http://127.0.0.1:8082/nexus/content/groups/public/"
 			artifactUrls "https://repo1.maven.org/maven2"
 			artifactUrls "http://dist.wso2.org/maven2/"
 		}
@@ -145,11 +145,11 @@ configure(allprojects.findAll {!it.name.equalsIgnoreCase('org.lucius.xlucius') &
 		repositories {  
 			mavenDeployer {
 				//userName  和 password 为maven的用户名和密码  
-				snapshotRepository(url: "http://172.16.5.137:8081/nexus/content/repositories/snapshots/") {  
+				snapshotRepository(url: "http://127.0.0.1:8082/nexus/content/repositories/snapshots/") {  
 					authentication(userName: "admin", password: "admin123")  
 				}
 				
-				repository(url: "http://172.16.5.137:8081/nexus/content/repositories") {
+				repository(url: "http://127.0.0.1:8082/nexus/content/repositories") {
 		            authentication(userName: "admin", password: "admin123")
 		        }
 				
@@ -207,6 +207,20 @@ task stopVirgoTomcat(type:Exec) {
   }
 }
 
+task clearVirgoTomcat {
+
+	def logsDir = new File(System.getenv()['VIRGO_HOME'] + File.separator + "logs");
+	def usrDir = new File(System.getenv()['VIRGO_HOME'] + File.separator + "repository" + File.separator + "logs");
+	def workDir = new File(System.getenv()['VIRGO_HOME'] + File.separator + "work");
+	def serviceabilityDir = new File(System.getenv()['VIRGO_HOME'] + File.separator + "serviceability");
+	
+	logsDir.deleteDir();
+	usrDir.deleteDir();
+	workDir.deleteDir();
+	serviceabilityDir.deleteDir();
+}
+
+//clearVirgoTomcat.dependsOn "stopVirgoTomcat"
 
 configure(rootProject) {
 	description = "org.lucius.xlucius"
